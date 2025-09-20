@@ -5,36 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MyApp</title>
 
-  <!-- Link to manifest -->
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#317EFB">
 
-  <!-- Styles -->
   <style>
+    /* Body & Gradient Background */
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
       height: 100vh;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #e0f7fa, #a7ffeb, #b3e5fc);
       color: #004d40;
       text-align: center;
-      transition: background 1s ease;
+      background: linear-gradient(135deg, #e0f7fa, #a7ffeb, #b3e5fc);
+      background-size: 600% 600%;
+      animation: gradientShift 20s ease infinite;
     }
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+    @keyframes gradientShift {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
 
-    p {
-      font-size: 1.2rem;
-      margin-top: 0;
+    /* Fade-in Animations */
+    h1, p, button {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.5s ease, transform 1.5s ease;
     }
 
+    h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    p { font-size: 1.2rem; margin-top: 0; }
+
+    /* Button Styling */
     button {
       padding: 0.8rem 1.5rem;
       margin-top: 1.5rem;
@@ -44,34 +52,88 @@
       background: #00bfa5;
       color: white;
       cursor: pointer;
-      transition: transform 0.3s ease, background 0.3s ease;
+      transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
     }
 
     button:hover {
       transform: scale(1.05);
       background: #1de9b6;
+      box-shadow: 0 0 20px #1de9b6;
+    }
+
+    /* Particle container */
+    #particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      width: 8px;
+      height: 8px;
+      animation: floatParticle linear infinite;
+    }
+
+    @keyframes floatParticle {
+      0% { transform: translateY(0px); opacity: 0; }
+      50% { opacity: 0.5; }
+      100% { transform: translateY(-200px); opacity: 0; }
     }
   </style>
 </head>
 <body>
+  <div id="particles"></div>
+
   <h1>Welcome to MyApp</h1>
   <p>This is a simple test Progressive Web App. Add me to your home screen!</p>
-
-  <!-- Futuristic button placeholder -->
   <button id="magicButton">Press Me</button>
 
   <script>
-    // Register service worker for PWA features
+    // Register Service Worker
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('service-worker.js')
       .then(() => console.log('Service Worker Registered'));
     }
 
-    // Placeholder for future interactive actions
+    // Button click placeholder
     const btn = document.getElementById('magicButton');
     btn.addEventListener('click', () => {
       alert('Future magic feature coming soon!');
     });
+
+    // Fade-in elements
+    window.addEventListener('load', () => {
+      const elements = [document.querySelector('h1'), document.querySelector('p'), document.querySelector('button')];
+      elements.forEach((el, index) => {
+        setTimeout(() => {
+          el.style.opacity = 1;
+          el.style.transform = 'translateY(0)';
+        }, index * 500);
+      });
+    });
+
+    // Particle generation
+    const particleContainer = document.getElementById('particles');
+    const particleCount = 40;
+
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      particle.style.left = Math.random() * window.innerWidth + 'px';
+      particle.style.top = Math.random() * window.innerHeight + 'px';
+      particle.style.width = particle.style.height = (Math.random() * 6 + 4) + 'px';
+      particle.style.animationDuration = (Math.random() * 8 + 8) + 's';
+      particle.style.animationDelay = Math.random() * 5 + 's';
+      particleContainer.appendChild(particle);
+    }
   </script>
 </body>
 </html>

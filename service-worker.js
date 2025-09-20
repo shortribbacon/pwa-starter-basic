@@ -1,10 +1,11 @@
-// Basic service worker to cache files for offline use
+// Simple offline caching
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open('myapp-cache').then(cache => {
       return cache.addAll([
         '/',
-        '/index.html'
+        '/index.html',
+        '/manifest.json'
       ]);
     })
   );

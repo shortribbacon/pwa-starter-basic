@@ -23,13 +23,21 @@
       text-align: center;
       background: linear-gradient(135deg, #e0f7fa, #a7ffeb, #b3e5fc);
       background-size: 600% 600%;
-      animation: gradientShift 30s ease infinite;
+      animation: gradientShift 30s ease infinite, pulse 6s ease-in-out infinite alternate;
     }
 
+    /* Background gradient shift */
     @keyframes gradientShift {
       0% {background-position: 0% 50%;}
       50% {background-position: 100% 50%;}
       100% {background-position: 0% 50%;}
+    }
+
+    /* Gentle pulsing for depth */
+    @keyframes pulse {
+      0% { filter: brightness(1); }
+      50% { filter: brightness(1.05); }
+      100% { filter: brightness(1); }
     }
 
     /* Fade-in Animations */
@@ -37,6 +45,7 @@
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 1.5s ease, transform 1.5s ease;
+      text-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
     h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
@@ -58,7 +67,12 @@
     button:hover {
       transform: scale(1.05);
       background: #1de9b6;
-      box-shadow: 0 0 20px #1de9b6;
+      box-shadow: 0 0 25px #1de9b6;
+    }
+
+    button:active {
+      transform: scale(0.98);
+      box-shadow: 0 0 15px #1de9b6 inset;
     }
 
     /* Particle container */
@@ -77,9 +91,10 @@
       position: absolute;
       border-radius: 50%;
       background: rgba(255,255,255,0.3);
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
       animation: floatParticle linear infinite;
+      filter: drop-shadow(0 0 5px rgba(255,255,255,0.2));
     }
 
     @keyframes floatParticle {
@@ -105,7 +120,7 @@
       .then(() => console.log('Service Worker Registered'));
     }
 
-    // Button placeholder interaction
+    // Button click placeholder
     const btn = document.getElementById('magicButton');
     btn.addEventListener('click', () => {
       alert('Future magic feature coming soon!');
@@ -124,7 +139,7 @@
 
     // Generate floating particles
     const particleContainer = document.getElementById('particles');
-    const particleCount = 50;
+    const particleCount = 60;
     for (let i = 0; i < particleCount; i++) {
       const particle = document.createElement('div');
       particle.classList.add('particle');
@@ -137,4 +152,3 @@
     }
   </script>
 </body>
-</html>

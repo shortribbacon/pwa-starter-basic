@@ -8,10 +8,57 @@
   <!-- Link to manifest -->
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#317EFB">
+
+  <!-- Styles -->
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #e0f7fa, #a7ffeb, #b3e5fc);
+      color: #004d40;
+      text-align: center;
+      transition: background 1s ease;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-top: 0;
+    }
+
+    button {
+      padding: 0.8rem 1.5rem;
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 12px;
+      background: #00bfa5;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: #1de9b6;
+    }
+  </style>
 </head>
 <body>
   <h1>Welcome to MyApp</h1>
   <p>This is a simple test Progressive Web App. Add me to your home screen!</p>
+
+  <!-- Futuristic button placeholder -->
+  <button id="magicButton">Press Me</button>
 
   <script>
     // Register service worker for PWA features
@@ -19,6 +66,12 @@
       navigator.serviceWorker.register('service-worker.js')
       .then(() => console.log('Service Worker Registered'));
     }
+
+    // Placeholder for future interactive actions
+    const btn = document.getElementById('magicButton');
+    btn.addEventListener('click', () => {
+      alert('Future magic feature coming soon!');
+    });
   </script>
 </body>
 </html>

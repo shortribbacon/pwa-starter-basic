@@ -33,20 +33,37 @@ function animate() {
 }
 animate();
 
-// Responsive canvas
 window.addEventListener('resize', () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 });
 
-// Try forcing fullscreen
+// Fade-in main landing content after splash
+window.addEventListener('load', () => {
+  const landing = document.querySelector('.landing');
+  setTimeout(() => {
+    landing.classList.add('show');
+  }, 3000); // matches splash duration
+});
+
+// Enter button logic
+document.getElementById('enter-btn').addEventListener('click', () => {
+  const landing = document.querySelector('.landing');
+  const main = document.querySelector('.main');
+  landing.classList.remove('show');
+  landing.classList.add('hidden');
+  main.classList.remove('hidden');
+  setTimeout(() => main.classList.add('show'), 50);
+});
+
+// Placeholder button in main page
+document.getElementById('magic-btn').addEventListener('click', () => {
+  alert("Future futuristic feature goes here!");
+});
+
+// Try forcing fullscreen (optional)
 document.addEventListener("click", () => {
   if (document.documentElement.requestFullscreen) {
     document.documentElement.requestFullscreen().catch(() => {});
   }
-});
-
-// Button action
-document.getElementById("explore-btn").addEventListener("click", () => {
-  alert("App ready for next steps!");
 });

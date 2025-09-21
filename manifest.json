@@ -1,7 +1,7 @@
 {
   "name": "FuturApp",
   "short_name": "FuturApp",
-  "start_url": ".",
+  "start_url": "home.html",
   "display": "standalone",
   "background_color": "#0a92ff",
   "theme_color": "#0a92ff",

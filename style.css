@@ -1,0 +1,83 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Background */
+body, html {
+  height: 100%;
+  background: linear-gradient(135deg, #0a192f, #1e3c72, #2a5298);
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+/* Splash screen */
+#splash {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0a192f;
+  z-index: 1000;
+  animation: splashFade 3s ease forwards;
+}
+
+#splash-icon {
+  width: 120px;
+  height: 120px;
+  opacity: 0;
+  animation: iconFade 3s ease forwards;
+}
+
+@keyframes splashFade {
+  0% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
+}
+
+@keyframes iconFade {
+  0% { opacity: 0; transform: scale(0.9); }
+  30% { opacity: 1; transform: scale(1.05); }
+  70% { opacity: 1; transform: scale(1.0); }
+  100% { opacity: 0; transform: scale(1.0); }
+}
+
+/* Main content */
+#app {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+#bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: rgba(255, 255, 255, 0.25);
+}

@@ -1,32 +1,44 @@
-/* Splash screen */
+/* Reset */
+* { margin:0; padding:0; box-sizing:border-box; }
+body, html { height:100%; font-family:'Exo 2', sans-serif; overflow:hidden; }
+
+/* Splash Screen */
 #splash {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: fixed; inset:0; display:flex; justify-content:center; align-items:center;
   background: linear-gradient(45deg, #0a192f, #1e3c72, #2a5298);
   background-size: 600% 600%;
-  z-index: 1000;
+  z-index:1000;
   animation: gradientSwirl 12s ease infinite;
 }
 
-#splash-icon {
-  width: 120px;
-  height: 120px;
-  opacity: 0;
-  animation: iconFade 3s ease forwards;
-}
+#splash-icon { width:120px; height:120px; opacity:0; animation: iconFade 3s ease forwards; }
 
 @keyframes iconFade {
-  0% { opacity: 0; transform: scale(0.9); }
-  30% { opacity: 1; transform: scale(1.05); }
-  70% { opacity: 1; transform: scale(1.0); }
-  100% { opacity: 0; transform: scale(1.0); }
+  0% { opacity:0; transform:scale(0.9);}
+  30% { opacity:1; transform:scale(1.05);}
+  70% { opacity:1; transform:scale(1);}
+  100% { opacity:0; transform:scale(1);}
 }
 
 @keyframes gradientSwirl {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% { background-position:0% 50%; }
+  50% { background-position:100% 50%; }
+  100% { background-position:0% 50%; }
 }
+
+/* App container */
+#app { position:relative; height:100%; width:100%; }
+#bg { position:absolute; top:0; left:0; width:100%; height:100%; z-index:-1; }
+
+/* Landing page background */
+.landing .landing-bg {
+  position:absolute; inset:0; background:url('icon-512.png') center center / contain no-repeat;
+  opacity:0.08; z-index:-1;
+}
+
+/* Content styling */
+.content { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:white; text-align:center; max-width:90%; opacity:0; transition:opacity 1.5s ease; }
+.content.show { opacity:1; }
+.hidden { display:none; }
+
+h1,h2 { text-shadow:0 0 10px rgba(255,255,255,

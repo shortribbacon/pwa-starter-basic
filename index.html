@@ -5,83 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#0a92ff">
 <title>FuturApp</title>
-
 <link rel="manifest" href="manifest.json">
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap" rel="stylesheet">
-
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="FuturApp">
 <link rel="apple-touch-icon" href="icon-192.png">
-
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<!-- Landing Page -->
 <div id="landing" class="content show">
   <h1>🚀 Welcome to the Future</h1>
-  <p>This futuristic app will change the way you experience technology.</p>
+  <p>This futuristic app will redefine your digital experience.</p>
   <button id="enter-btn">Enter App</button>
+
+  <!-- Optional install prompt -->
+  <div id="installPrompt" class="hidden">
+    <p>Install this app for the best experience.</p>
+    <button id="installBtn">Install App</button>
+    <button id="laterBtn">Later</button>
+  </div>
 </div>
-
-<!-- Main Home Page -->
-<div id="home" class="hidden">
-  <div class="home-bg"></div>
-  <nav id="nav-bar">
-    <div class="dropdown">
-      <button class="dropbtn">Menu 1</button>
-      <div class="dropdown-content">
-        <a href="#" data-target="panel1-1">Item 1</a>
-        <a href="#" data-target="panel1-2">Item 2</a>
-        <a href="#" data-target="panel1-3">Item 3</a>
-        <a href="#" data-target="panel1-4">Item 4</a>
-      </div>
-    </div>
-    <div class="dropdown">
-      <button class="dropbtn">Menu 2</button>
-      <div class="dropdown-content">
-        <a href="#" data-target="panel2-1">Item 1</a>
-        <a href="#" data-target="panel2-2">Item 2</a>
-        <a href="#" data-target="panel2-3">Item 3</a>
-        <a href="#" data-target="panel2-4">Item 4</a>
-      </div>
-    </div>
-    <div class="dropdown">
-      <button class="dropbtn">Menu 3</button>
-      <div class="dropdown-content">
-        <a href="#" data-target="panel3-1">Item 1</a>
-        <a href="#" data-target="panel3-2">Item 2</a>
-        <a href="#" data-target="panel3-3">Item 3</a>
-        <a href="#" data-target="panel3-4">Item 4</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Panels -->
-  <div class="panel hidden" id="panel1-1"><button class="back-btn">&larr; Back</button><h2>Menu 1 - Item 1</h2><p>Placeholder content.</p></div>
-  <div class="panel hidden" id="panel1-2"><button class="back-btn">&larr; Back</button><h2>Menu 1 - Item 2</h2><p>Placeholder content.</p></div>
-  <div class="panel hidden" id="panel1-3"><button class="back-btn">&larr; Back</button><h2>Menu 1 - Item 3</h2><p>Placeholder content.</p></div>
-  <div class="panel hidden" id="panel1-4"><button class="back-btn">&larr; Back</button><h2>Menu 1 - Item 4</h2><p>Placeholder content.</p></div>
-
-  <div class="panel hidden" id="panel2-1"><button class="back-btn">&larr; Back</button><h2>Menu 2 - Item 1</h2><p>Placeholder content.</p></div>
-  <div class="panel hidden" id="panel2-2"><button class="back-btn">&larr; Back</button><h2>Menu 2 - Item 2</h2><p>Placeholder content.</p></div>
-  <div class="panel hidden" id="panel2-3"><button class="back-btn">&larr; Back</button><h2>Menu 2 - Item 3</h2><p>Placeholder content.</p></div>
-  <div class="panel hidden" id="panel2-4"><button class="back-btn">&larr; Back</button><h2>Menu 2 - Item 4</h2><p>Placeholder content.</p></div>
-
-  <div class="panel hidden" id="panel3-1"><button class="back-btn">&larr; Back</button><h2>Menu 3 - Item 1</h2><p>Placeholder content.</p></div>
-  <div class="panel hidden" id="panel3-2"><button class="back-btn">&larr; Back</button><h2>Menu 3 - Item 2</h2><p>Placeholder content.</p></div>
-  <div class="panel hidden" id="panel3-3"><button class="back-btn">&larr; Back</button><h2>Menu 3 - Item 3</h2><p>Placeholder content.</p></div>
-  <div class="panel hidden" id="panel3-4"><button class="back-btn">&larr; Back</button><h2>Menu 3 - Item 4</h2><p>Placeholder content.</p></div>
-</div>
-
-<!-- Custom Install Prompt -->
-<div id="installPrompt" class="hidden">
-  <p>Install this app for the best experience.</p>
-  <button id="installBtn">Install App</button>
-  <button id="laterBtn">Later</button>
-</div>
-
 <script src="app.js"></script>
 </body>
 </html>

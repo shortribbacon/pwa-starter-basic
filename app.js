@@ -1,9 +1,12 @@
-// Enter button: redirect from landing to home
-document.getElementById('enter-btn').addEventListener('click',()=>{
+// Detect if app is running standalone
+const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+
+// Landing page: Enter button
+document.getElementById('enter-btn')?.addEventListener('click',()=>{
   window.location.href='home.html';
 });
 
-// Panel navigation
+// Panels navigation (home.html)
 const panelLinks=document.querySelectorAll('.dropdown-content a');
 const panels=document.querySelectorAll('.panel');
 const backButtons=document.querySelectorAll('.back-btn');
@@ -33,26 +36,28 @@ if('serviceWorker' in navigator){
   navigator.serviceWorker.register('service-worker.js').then(()=>console.log('SW Registered'));
 }
 
-// PWA install prompt on landing page
+// PWA install prompt (only if not standalone)
 let deferredPrompt;
 const installPrompt=document.getElementById('installPrompt');
 const installBtn=document.getElementById('installBtn');
 const laterBtn=document.getElementById('laterBtn');
 
-window.addEventListener('beforeinstallprompt', (e)=>{
-  e.preventDefault();
-  deferredPrompt = e;
-  if(installPrompt) installPrompt.classList.remove('hidden');
-});
+if(!isStandalone && installPrompt){
+  window.addEventListener('beforeinstallprompt', (e)=>{
+    e.preventDefault();
+    deferredPrompt = e;
+    installPrompt.classList.remove('hidden');
+  });
 
-installBtn?.addEventListener('click', async ()=>{
-  installPrompt.classList.add('hidden');
-  if(deferredPrompt){
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then(()=>{deferredPrompt=null;});
-  }
-});
+  installBtn?.addEventListener('click', async ()=>{
+    installPrompt.classList.add('hidden');
+    if(deferredPrompt){
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(()=>{deferredPrompt=null;});
+    }
+  });
 
-laterBtn?.addEventListener('click', ()=>{
-  installPrompt.classList.add('hidden');
-});
+  laterBtn?.addEventListener('click', ()=>{
+    installPrompt.classList.add('hidden');
+  });
+}

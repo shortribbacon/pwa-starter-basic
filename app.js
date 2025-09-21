@@ -61,7 +61,13 @@ document.getElementById('magic-btn').addEventListener('click', () => {
   alert("Future futuristic feature goes here!");
 });
 
-// Try forcing fullscreen (optional)
+// Register service worker for offline PWA
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js')
+  .then(() => console.log('Service Worker Registered'));
+}
+
+// Attempt fullscreen on user interaction
 document.addEventListener("click", () => {
   if (document.documentElement.requestFullscreen) {
     document.documentElement.requestFullscreen().catch(() => {});

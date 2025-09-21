@@ -1,15 +1,7 @@
-// Landing page splash handling
-window.addEventListener('load',()=>{
-  setTimeout(()=>document.querySelector('.landing').classList.add('show'),500);
-});
-
+// Splash to Home transition
 document.getElementById('enter-btn').addEventListener('click',()=>{
-  document.querySelector('#splash').classList.add('hidden');
-  document.querySelector('.landing').classList.remove('show');
-  document.querySelector('.landing').classList.add('hidden');
-  const main=document.querySelector('.main');
-  main.classList.remove('hidden');
-  setTimeout(()=>main.classList.add('show'),50);
+  document.getElementById('landing').classList.add('hidden');
+  document.getElementById('home').classList.remove('hidden');
 });
 
 // Panel navigation
@@ -37,7 +29,32 @@ backButtons.forEach(btn=>{
   });
 });
 
-// Service worker
+// Service Worker registration
 if('serviceWorker' in navigator){
-  navigator.serviceWorker.register('service-worker.js').then(()=>console.log('Service Worker Registered'));
+  navigator.serviceWorker.register('service-worker.js').then(()=>console.log('SW Registered'));
 }
+
+// PWA install prompt
+let deferredPrompt;
+const installPrompt=document.getElementById('installPrompt');
+const installBtn=document.getElementById('installBtn');
+const laterBtn=document.getElementById('laterBtn');
+
+window.addEventListener('beforeinstallprompt', (e)=>{
+  e.preventDefault();
+  deferredPrompt = e;
+  installPrompt.classList.remove('hidden');
+});
+
+installBtn.addEventListener('click', async ()=>{
+  installPrompt.classList.add('hidden');
+  if(deferredPrompt){
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    deferredPrompt = null;
+  }
+});
+
+laterBtn.addEventListener('click', ()=>{
+  installPrompt.classList.add('hidden');
+});

@@ -2,12 +2,11 @@
 body, html { height:100%; font-family:'Exo 2', sans-serif; overflow:hidden; }
 
 /* Landing page */
-#landing { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); text-align:center; color:white; max-width:90%; transition:opacity 1s; }
-.hidden { display:none; }
-button { padding:12px 28px; font-size:16px; border-radius:12px; border:1px solid rgba(255,255,255,0.3); background:rgba(255,255,255,0.05); color:white; cursor:pointer; transition:all 0.3s; }
-button:hover { background:rgba(255,255,255,0.25); box-shadow:0 0 15px rgba(0,255,255,0.2); transform:scale(1.05);}
-h1 { font-size:2.5rem; text-shadow:0 0 10px rgba(0,0,0,0.3); margin-bottom:1rem; }
-p { font-size:1.2rem; margin:0.5rem 0; }
+#landing { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); text-align:center; color:white; max-width:90%; background:#0a92ff; padding:20px; border-radius:20px;}
+#landing h1 { font-size:2.5rem; margin-bottom:1rem; text-shadow:0 0 10px rgba(0,0,0,0.3);}
+#landing p { font-size:1.2rem; margin-bottom:1rem;}
+#landing button { padding:12px 24px; font-size:16px; border-radius:12px; border:none; background:white; color:#0a92ff; cursor:pointer; transition:all 0.3s; }
+#landing button:hover { background:#e0e0e0; transform:scale(1.05);}
 
 /* Home page background */
 .home-bg { position:absolute; inset:0; background:url('icon-512.png') center center/cover no-repeat; opacity:0.15; z-index:-1; }
@@ -25,8 +24,10 @@ p { font-size:1.2rem; margin:0.5rem 0; }
 /* Panels */
 .panel { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); max-width:90%; padding:20px; background:rgba(10,25,47,0.85); border-radius:20px; box-shadow:0 0 20px rgba(0,255,255,0.2); text-align:center; opacity:0; transition:opacity 0.5s ease; }
 .panel.show { opacity:1; }
-.back-btn { position:absolute; top:15px; left:15px; }
+.back-btn { position:absolute; top:15px; left:15px; padding:8px 12px; border:none; border-radius:8px; background:white; color:#0a92ff; cursor:pointer;}
+.back-btn:hover { background:#e0e0e0; }
 
 /* Install prompt */
-#installPrompt { position:fixed; bottom:30px; left:50%; transform:translateX(-50%); background:rgba(10,25,47,0.9); padding:15px 25px; border-radius:12px; display:flex; gap:10px; z-index:50; }
-#installPrompt button { cursor:pointer; }
+#installPrompt { position:fixed; bottom:30px; left:50%; transform:translateX(-50%); background:rgba(10,25,47,0.9); padding:15px 25px; border-radius:12px; display:flex; gap:10px; z-index:50; color:white; }
+#installPrompt button { cursor:pointer; padding:8px 16px; border-radius:8px; border:none; background:white; color:#0a92ff;}
+#installPrompt button:hover { background:#e0e0e0;}

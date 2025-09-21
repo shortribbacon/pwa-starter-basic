@@ -1,46 +1,32 @@
-/* Reset */
 * { margin:0; padding:0; box-sizing:border-box; }
 body, html { height:100%; font-family:'Exo 2', sans-serif; overflow:hidden; }
 
-/* Splash Screen (solid blue) */
-#splash {
-  position: fixed; inset:0; display:flex; justify-content:center; align-items:center;
-  background:#0a92ff; z-index:1000;
-}
-#splash-icon { width:120px; height:120px; opacity:0; animation: iconFade 3s ease forwards; }
-@keyframes iconFade { 0% {opacity:0; transform:scale(0.9);} 50% {opacity:1; transform:scale(1.05);} 100% {opacity:1; transform:scale(1);} }
-
-/* App container */
-#app { position:relative; height:100%; width:100%; }
-#bg { position:absolute; top:0; left:0; width:100%; height:100%; z-index:-1; }
-
 /* Landing page */
-.landing { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:white; text-align:center; max-width:90%; opacity:0; transition:opacity 1s ease; }
-.content.show { opacity:1; }
+#landing { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); text-align:center; color:white; max-width:90%; transition:opacity 1s; }
 .hidden { display:none; }
-h1,h2 { text-shadow:0 0 10px rgba(255,255,255,0.2);}
-h1 { font-size:2.5rem; margin-bottom:1rem; }
-h2 { font-size:2rem; margin-bottom:1rem; }
-p { font-size:1.2rem; margin:0.5rem 0; text-shadow:0 0 8px rgba(255,255,255,0.1); }
-
-/* Buttons */
-button { margin-top:20px; padding:12px 28px; font-size:16px; border-radius:12px; border:1px solid rgba(255,255,255,0.3); background:rgba(255,255,255,0.05); color:white; cursor:pointer; transition:all 0.3s ease; }
+button { padding:12px 28px; font-size:16px; border-radius:12px; border:1px solid rgba(255,255,255,0.3); background:rgba(255,255,255,0.05); color:white; cursor:pointer; transition:all 0.3s; }
 button:hover { background:rgba(255,255,255,0.25); box-shadow:0 0 15px rgba(0,255,255,0.2); transform:scale(1.05);}
-.back-btn { position:absolute; top:15px; left:15px; }
+h1 { font-size:2.5rem; text-shadow:0 0 10px rgba(0,0,0,0.3); margin-bottom:1rem; }
+p { font-size:1.2rem; margin:0.5rem 0; }
+
+/* Home page background */
+.home-bg { position:absolute; inset:0; background:url('icon-512.png') center center/cover no-repeat; opacity:0.15; z-index:-1; }
 
 /* Nav bar */
 #nav-bar { display:flex; justify-content:center; gap:15px; position:fixed; top:0; left:0; width:100%; padding:10px 0; background:rgba(10,25,47,0.7); z-index:10; backdrop-filter:blur(8px);}
 .dropdown { position:relative; display:inline-block; }
-.dropbtn { background:rgba(255,255,255,0.05); color:white; padding:10px 20px; border-radius:12px; border:none; cursor:pointer; font-size:16px; transition:all 0.3s ease;}
+.dropbtn { background:rgba(255,255,255,0.05); color:white; padding:10px 20px; border-radius:12px; border:none; cursor:pointer; }
 .dropbtn:hover { background:rgba(255,255,255,0.25); box-shadow:0 0 10px rgba(0,255,255,0.2); }
-.dropdown-content { display:none; position:absolute; background:rgba(0,0,0,0.8); min-width:160px; border-radius:10px; box-shadow:0 8px 16px rgba(0,0,0,0.3); z-index:20; flex-direction:column;}
-.dropdown-content a { color:white; padding:10px 16px; text-decoration:none; display:block; transition:all 0.3s ease; }
+.dropdown-content { display:none; position:absolute; background:rgba(0,0,0,0.8); min-width:160px; border-radius:10px; flex-direction:column; z-index:20;}
+.dropdown-content a { color:white; padding:10px 16px; text-decoration:none; display:block; transition:all 0.3s;}
 .dropdown-content a:hover { background:rgba(0,255,255,0.2);}
 .dropdown:hover .dropdown-content { display:flex; flex-direction:column; }
 
 /* Panels */
 .panel { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); max-width:90%; padding:20px; background:rgba(10,25,47,0.85); border-radius:20px; box-shadow:0 0 20px rgba(0,255,255,0.2); text-align:center; opacity:0; transition:opacity 0.5s ease; }
 .panel.show { opacity:1; }
+.back-btn { position:absolute; top:15px; left:15px; }
 
-/* Responsive */
-@media(max-width:600px){ #nav-bar { flex-direction:column; gap:8px; } }
+/* Install prompt */
+#installPrompt { position:fixed; bottom:30px; left:50%; transform:translateX(-50%); background:rgba(10,25,47,0.9); padding:15px 25px; border-radius:12px; display:flex; gap:10px; z-index:50; }
+#installPrompt button { cursor:pointer; }

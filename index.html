@@ -9,6 +9,7 @@
   <link rel="manifest" href="manifest.json">
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap" rel="stylesheet">
 
+  <!-- iOS PWA meta -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="FuturApp">
@@ -17,29 +18,118 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Splash screen overlay -->
+  <!-- Splash screen -->
   <div id="splash">
     <img src="icon-192.png" alt="App Icon" id="splash-icon">
   </div>
 
-  <!-- Main App Container -->
   <div id="app">
     <canvas id="bg"></canvas>
 
-    <!-- Landing Page with icon background -->
+    <!-- Landing Page -->
     <div class="landing content">
       <div class="landing-bg"></div>
       <h1>🚀 Welcome to the Future</h1>
       <p>This app will redefine the way you experience technology. Sleek, smooth, and groundbreaking.</p>
-      <p>Everything here is designed to feel futuristic, immersive, and responsive.</p>
       <button id="enter-btn">Enter</button>
     </div>
 
-    <!-- Post-Enter Page -->
+    <!-- Main Page with Menus -->
     <div class="main content hidden">
-      <h1>Get Ready</h1>
-      <p>This is your futuristic dashboard. Placeholder content awaits your vision!</p>
-      <button id="magic-btn">Next Feature</button>
+      <!-- Navigation bar -->
+      <nav id="nav-bar">
+        <div class="dropdown">
+          <button class="dropbtn">Menu 1</button>
+          <div class="dropdown-content">
+            <a href="#" data-target="panel1-1">Item 1</a>
+            <a href="#" data-target="panel1-2">Item 2</a>
+            <a href="#" data-target="panel1-3">Item 3</a>
+            <a href="#" data-target="panel1-4">Item 4</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">Menu 2</button>
+          <div class="dropdown-content">
+            <a href="#" data-target="panel2-1">Item 1</a>
+            <a href="#" data-target="panel2-2">Item 2</a>
+            <a href="#" data-target="panel2-3">Item 3</a>
+            <a href="#" data-target="panel2-4">Item 4</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">Menu 3</button>
+          <div class="dropdown-content">
+            <a href="#" data-target="panel3-1">Item 1</a>
+            <a href="#" data-target="panel3-2">Item 2</a>
+            <a href="#" data-target="panel3-3">Item 3</a>
+            <a href="#" data-target="panel3-4">Item 4</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Panels for each menu item -->
+      <div class="panel hidden" id="panel1-1">
+        <button class="back-btn">&larr; Back</button>
+        <h2>Menu 1 - Item 1</h2>
+        <p>Placeholder content for Menu 1 Item 1. Replace with your own content.</p>
+      </div>
+      <div class="panel hidden" id="panel1-2">
+        <button class="back-btn">&larr; Back</button>
+        <h2>Menu 1 - Item 2</h2>
+        <p>Placeholder content for Menu 1 Item 2.</p>
+      </div>
+      <div class="panel hidden" id="panel1-3">
+        <button class="back-btn">&larr; Back</button>
+        <h2>Menu 1 - Item 3</h2>
+        <p>Placeholder content for Menu 1 Item 3.</p>
+      </div>
+      <div class="panel hidden" id="panel1-4">
+        <button class="back-btn">&larr; Back</button>
+        <h2>Menu 1 - Item 4</h2>
+        <p>Placeholder content for Menu 1 Item 4.</p>
+      </div>
+
+      <div class="panel hidden" id="panel2-1">
+        <button class="back-btn">&larr; Back</button>
+        <h2>Menu 2 - Item 1</h2>
+        <p>Placeholder content for Menu 2 Item 1.</p>
+      </div>
+      <div class="panel hidden" id="panel2-2">
+        <button class="back-btn">&larr; Back</button>
+        <h2>Menu 2 - Item 2</h2>
+        <p>Placeholder content for Menu 2 Item 2.</p>
+      </div>
+      <div class="panel hidden" id="panel2-3">
+        <button class="back-btn">&larr; Back</button>
+        <h2>Menu 2 - Item 3</h2>
+        <p>Placeholder content for Menu 2 Item 3.</p>
+      </div>
+      <div class="panel hidden" id="panel2-4">
+        <button class="back-btn">&larr; Back</button>
+        <h2>Menu 2 - Item 4</h2>
+        <p>Placeholder content for Menu 2 Item 4.</p>
+      </div>
+
+      <div class="panel hidden" id="panel3-1">
+        <button class="back-btn">&larr; Back</button>
+        <h2>Menu 3 - Item 1</h2>
+        <p>Placeholder content for Menu 3 Item 1.</p>
+      </div>
+      <div class="panel hidden" id="panel3-2">
+        <button class="back-btn">&larr; Back</button>
+        <h2>Menu 3 - Item 2</h2>
+        <p>Placeholder content for Menu 3 Item 2.</p>
+      </div>
+      <div class="panel hidden" id="panel3-3">
+        <button class="back-btn">&larr; Back</button>
+        <h2>Menu 3 - Item 3</h2>
+        <p>Placeholder content for Menu 3 Item 3.</p>
+      </div>
+      <div class="panel hidden" id="panel3-4">
+        <button class="back-btn">&larr; Back</button>
+        <h2>Menu 3 - Item 4</h2>
+        <p>Placeholder content for Menu 3 Item 4.</p>
+      </div>
     </div>
   </div>
 

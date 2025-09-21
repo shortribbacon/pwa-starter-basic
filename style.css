@@ -1,62 +1,32 @@
-/* Reset */
-* { margin:0; padding:0; box-sizing:border-box; }
-body, html { height:100%; font-family:'Exo 2', sans-serif; overflow:hidden; }
-
-/* Animated Splash Screen */
+/* Splash screen */
 #splash {
   position: fixed;
-  inset:0;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background: linear-gradient(135deg, #0a192f, #1e3c72, #2a5298);
-  z-index:1000;
-  animation: splashColorShift 2s infinite alternate;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(45deg, #0a192f, #1e3c72, #2a5298);
+  background-size: 600% 600%;
+  z-index: 1000;
+  animation: gradientSwirl 12s ease infinite;
 }
 
-#splash-icon { width:120px; height:120px; opacity:0; animation: iconFade 3s ease forwards; }
+#splash-icon {
+  width: 120px;
+  height: 120px;
+  opacity: 0;
+  animation: iconFade 3s ease forwards;
+}
 
 @keyframes iconFade {
-  0% {opacity:0; transform:scale(0.9);}
-  30% {opacity:1; transform:scale(1.05);}
-  70% {opacity:1; transform:scale(1);}
-  100% {opacity:0; transform:scale(1);}
+  0% { opacity: 0; transform: scale(0.9); }
+  30% { opacity: 1; transform: scale(1.05); }
+  70% { opacity: 1; transform: scale(1.0); }
+  100% { opacity: 0; transform: scale(1.0); }
 }
 
-/* Dynamic color shift on splash */
-@keyframes splashColorShift {
-  0% {background:linear-gradient(135deg, #0a192f, #1e3c72, #2a5298);}
-  25% {background:linear-gradient(135deg, #0c2f2f, #2a5298, #1e8f72);}
-  50% {background:linear-gradient(135deg, #0a3c4f, #1e72aa, #0a8f5a);}
-  75% {background:linear-gradient(135deg, #0f2f5f, #2a5f72, #1eaa99);}
-  100% {background:linear-gradient(135deg, #0a192f, #1e3c72, #2a5298);}
+@keyframes gradientSwirl {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
-
-/* App container */
-#app { position:relative; height:100%; width:100%; }
-#bg { position:absolute; top:0; left:0; width:100%; height:100%; z-index:-1; }
-
-/* Landing Page background image */
-.landing .landing-bg {
-  position:absolute;
-  inset:0;
-  background:url('icon-512.png') center center / contain no-repeat;
-  opacity:0.08; /* subtle overlay */
-  z-index:-1;
-}
-
-/* Generic content styling */
-.content { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:white; text-align:center; max-width:90%; opacity:0; transition:opacity 1.5s ease; }
-.content.show { opacity:1; }
-.hidden { display:none; }
-
-h1 { font-size:2.5rem; margin-bottom:1rem; text-shadow:0 0 10px rgba(255,255,255,0.2);}
-p { font-size:1.2rem; margin:0.5rem 0; text-shadow:0 0 8px rgba(255,255,255,0.1); }
-
-button {
-  margin-top:20px; padding:12px 28px; font-size:16px;
-  border-radius:12px; border:1px solid rgba(255,255,255,0.3);
-  background:rgba(255,255,255,0.05); color:white; cursor:pointer;
-  transition:all 0.3s ease;
-}
-button:hover { background:rgba(255,255,255,0.25); box-shadow:0 0 15px rgba(0,255,255,0.2); transform:scale(1.05);}

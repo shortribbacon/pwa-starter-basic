@@ -7,14 +7,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
   const installBtn = document.getElementById('installBtn');
   const instructions = document.getElementById('installInstructions');
 
-  // SPLASH TRANSITION
+  // SPLASH TRANSITION: fade in/out 5s total
   splash.classList.add('show');
   setTimeout(()=>{
     splash.classList.remove('show');
     splash.classList.add('hidden');
     landing.classList.remove('hidden');
     landing.classList.add('show');
-  },5000); // 1s fade-in +3s stay +1s fade-out
+  },5000);
 
   // ENTER APP BUTTON
   enterBtn?.addEventListener('click', ()=>{
@@ -36,9 +36,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     if(deferredPrompt){
       deferredPrompt.prompt();
       deferredPrompt.userChoice.then(()=>{ deferredPrompt=null; });
-    } else {
-      instructions?.classList.remove('hidden');
-    }
+    } else { instructions?.classList.remove('hidden'); }
   });
 
   // PANEL NAVIGATION

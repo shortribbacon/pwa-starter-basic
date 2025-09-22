@@ -7,7 +7,15 @@ html, body { height:100%; width:100%; overflow:hidden; background:#0a92ff; color
 .show { opacity:1; pointer-events:auto; }
 
 /* Splash */
-.splash-icon { max-width:50%; max-height:50%; }
+.splash-bg { position:absolute; top:0; left:0; width:100%; height:100%; background:url('icon-512.png') center/cover no-repeat; filter:brightness(0.5); }
+.splash-icon { max-width:50%; max-height:50%; animation:fadeInOut 5s forwards; }
+
+@keyframes fadeInOut {
+  0% { opacity:0; transform:scale(0.9); }
+  20% { opacity:1; transform:scale(1); }
+  80% { opacity:1; transform:scale(1); }
+  100% { opacity:0; transform:scale(1.1); }
+}
 
 /* Landing */
 #landing { text-align:center; color:#0a2e5f; }

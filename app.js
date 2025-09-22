@@ -7,18 +7,15 @@ document.addEventListener('DOMContentLoaded', ()=>{
   const installBtn = document.getElementById('installBtn');
   const instructions = document.getElementById('installInstructions');
 
-  // SPLASH TRANSITION: fade in/out 5s total
-  splash.classList.add('show');
+  // SPLASH TRANSITION: fade sequence 7s
   setTimeout(()=>{
-    splash.classList.remove('show');
     splash.classList.add('hidden');
     landing.classList.remove('hidden');
     landing.classList.add('show');
-  },5000);
+  },7000);
 
   // ENTER APP BUTTON
   enterBtn?.addEventListener('click', ()=>{
-    landing.classList.remove('show');
     landing.classList.add('hidden');
     home.classList.remove('hidden');
     home.classList.add('show');
@@ -65,5 +62,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
   });
 
   // SERVICE WORKER
-  if('serviceWorker' in navigator){ navigator.serviceWorker.register('service-worker.js').then(()=>console.log('SW Registered')); }
+  if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('service-worker.js')
+      .then(()=>console.log('SW Registered'));
+  }
 });

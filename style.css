@@ -1,40 +1,29 @@
-/* General resets */
 * { margin:0; padding:0; box-sizing:border-box; font-family: 'Exo 2', sans-serif; }
 html, body { height:100%; width:100%; overflow:hidden; background:#0a92ff; color:#0a2e5f; }
 
-/* Splash page */
-#splash {
-  height:100vh; width:100vw; display:flex; align-items:center; justify-content:center;
-  background:#0a92ff;
-  animation:fadeIn 2s ease forwards;
-}
+/* Sections */
+.section { position:absolute; top:0; left:0; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; transition:opacity 1s ease; }
+.hidden { opacity:0; pointer-events:none; }
+.show { opacity:1; pointer-events:auto; }
+
+/* Splash */
 .splash-icon { max-width:50%; max-height:50%; }
 
-/* Landing page */
-#landing { height:100vh; width:100vw; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; background:#0a92ff; color:#0a2e5f; }
+/* Landing */
+#landing { text-align:center; color:#0a2e5f; }
 #landing h1 { font-size:2.5rem; margin-bottom:20px; }
 #landing p { font-size:1.2rem; margin-bottom:30px; }
-.landing-buttons { display:flex; gap:20px; flex-wrap:wrap; }
+.landing-buttons { display:flex; gap:20px; flex-wrap:wrap; justify-content:center; }
 .landing-buttons button {
-  padding:12px 24px; border:none; border-radius:25px;
-  background:#1dd1a1; color:#fff; font-size:1rem;
+  padding:12px 24px; border:none; border-radius:25px; background:#1dd1a1; color:#fff; font-size:1rem;
   cursor:pointer; transition:all 0.3s ease; box-shadow:0 0 15px rgba(0,255,200,0.3);
 }
 .landing-buttons button:hover { box-shadow:0 0 25px rgba(0,255,200,0.6); transform:scale(1.05); }
-
-/* Install instructions fallback */
 #installInstructions { margin-top:20px; color:#fff; }
 
-/* Home page */
-.home-bg {
-  position:fixed; top:0; left:0; width:100%; height:100%;
-  background:url('icon-512.png') center/cover no-repeat;
-  filter: brightness(0.8);
-  z-index:-1;
-}
-
-/* Nav bar */
-#nav-bar { position:fixed; top:0; left:0; width:100%; display:flex; justify-content:start; gap:15px; padding:10px 15px; background:rgba(255,255,255,0.15); backdrop-filter:blur(10px); z-index:10; }
+/* Home */
+.home-bg { position:fixed; top:0; left:0; width:100%; height:100%; background:url('icon-512.png') center/cover no-repeat; filter: brightness(0.8); z-index:-1; }
+#nav-bar { position:fixed; top:0; left:0; width:100%; display:flex; gap:15px; padding:10px 15px; background:rgba(255,255,255,0.15); backdrop-filter:blur(10px); z-index:10; }
 .dropbtn { background:rgba(255,255,255,0.2); border:none; padding:8px 14px; border-radius:20px; color:#0a2e5f; font-weight:700; cursor:pointer; transition:0.3s; }
 .dropbtn:hover { background:rgba(255,255,255,0.35); }
 .dropdown { position:relative; }
@@ -48,7 +37,3 @@ html, body { height:100%; width:100%; overflow:hidden; background:#0a92ff; color
 .panel.show { opacity:1; }
 .back-btn { margin-bottom:10px; padding:6px 14px; border:none; border-radius:20px; background:#0a92ff; color:#fff; cursor:pointer; transition:all 0.3s; }
 .back-btn:hover { background:#0a6ed1; }
-
-/* Animations */
-@keyframes fadeIn { 0% {opacity:0} 100% {opacity:1} }
-.hidden { display:none!important; }

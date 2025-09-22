@@ -1,85 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#0a92ff">
-<title>FuturApp</title>
-<link rel="manifest" href="manifest.json">
-<link rel="stylesheet" href="style.css">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<link rel="apple-touch-icon" href="icon-192.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Futuristic PWA</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icon-192.png" />
+  <meta name="theme-color" content="#0a192f"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Splash -->
+  <section id="splash" class="fullscreen">
+    <img src="icon-512.png" alt="App Icon" class="splash-icon" />
+  </section>
 
-<!-- SPLASH -->
-<section id="splash" class="section">
-  <div class="splash-bg"></div>
-  <img src="icon-512.png" alt="App Icon" class="splash-icon">
-</section>
-
-<!-- LANDING -->
-<section id="landing" class="section hidden">
-  <h1>🚀 Welcome to the Future</h1>
-  <p>This app redefines digital experience with smooth, futuristic design.</p>
-  <div class="landing-buttons">
-    <button id="enter-btn">Enter App</button>
-    <button id="installBtn">Install App</button>
-  </div>
-  <div id="installInstructions" class="hidden">
-    <p>Tap Share → Add to Home Screen (iOS) / Menu → Add to Home Screen (Android)</p>
-  </div>
-</section>
-
-<!-- HOME -->
-<section id="home" class="section hidden">
-  <div class="home-bg"></div>
-  <nav id="nav-bar">
-    <div class="dropdown">
-      <button class="dropbtn">About</button>
-      <div class="dropdown-content">
-        <a href="#" data-target="panel-about">Overview</a>
-        <a href="#" data-target="panel-history">History</a>
-        <a href="#" data-target="panel-profile">Profile</a>
-        <a href="#" data-target="panel-settings">Settings</a>
-      </div>
+  <!-- Landing -->
+  <section id="landing" class="fullscreen hidden">
+    <div class="landing-content">
+      <h1>Welcome to the Future</h1>
+      <p>This experience will redefine simplicity and design.</p>
+      <button id="enter-btn">Enter App</button>
+      <button id="installBtn">Install App</button>
+      <p id="installInstructions" class="hidden">Use your browser’s “Add to Home Screen” to install.</p>
     </div>
-    <div class="dropdown">
-      <button class="dropbtn">Media</button>
-      <div class="dropdown-content">
-        <a href="#" data-target="panel-gallery">Gallery</a>
-        <a href="#" data-target="panel-favorites">Favorites</a>
-        <a href="#" data-target="panel-donation">Donate</a>
-        <a href="#" data-target="panel-help">Help / FAQ</a>
-      </div>
-    </div>
-    <div class="dropdown">
-      <button class="dropbtn">Extras</button>
-      <div class="dropdown-content">
-        <a href="#" data-target="panel-feature1">Feature 1</a>
-        <a href="#" data-target="panel-feature2">Feature 2</a>
-        <a href="#" data-target="panel-feature3">Feature 3</a>
-        <a href="#" data-target="panel-feature4">Feature 4</a>
-      </div>
-    </div>
-  </nav>
+  </section>
 
-  <!-- Panels -->
-  <div class="panel hidden" id="panel-about"><button class="back-btn">&larr; Back</button><h2>About</h2><p>Placeholder content.</p></div>
-  <div class="panel hidden" id="panel-history"><button class="back-btn">&larr; Back</button><h2>History</h2><p>Placeholder content.</p></div>
-  <div class="panel hidden" id="panel-profile"><button class="back-btn">&larr; Back</button><h2>Profile</h2><p>Placeholder content.</p></div>
-  <div class="panel hidden" id="panel-settings"><button class="back-btn">&larr; Back</button><h2>Settings</h2><p>Placeholder content.</p></div>
-  <div class="panel hidden" id="panel-gallery"><button class="back-btn">&larr; Back</button><h2>Gallery</h2><p>Placeholder content.</p></div>
-  <div class="panel hidden" id="panel-favorites"><button class="back-btn">&larr; Back</button><h2>Favorites</h2><p>Placeholder content.</p></div>
-  <div class="panel hidden" id="panel-donation"><button class="back-btn">&larr; Back</button><h2>Donate</h2><p>Placeholder content.</p></div>
-  <div class="panel hidden" id="panel-help"><button class="back-btn">&larr; Back</button><h2>Help / FAQ</h2><p>Placeholder content.</p></div>
-  <div class="panel hidden" id="panel-feature1"><button class="back-btn">&larr; Back</button><h2>Feature 1</h2><p>Placeholder content.</p></div>
-  <div class="panel hidden" id="panel-feature2"><button class="back-btn">&larr; Back</button><h2>Feature 2</h2><p>Placeholder content.</p></div>
-  <div class="panel hidden" id="panel-feature3"><button class="back-btn">&larr; Back</button><h2>Feature 3</h2><p>Placeholder content.</p></div>
-  <div class="panel hidden" id="panel-feature4"><button class="back-btn">&larr; Back</button><h2>Feature 4</h2><p>Placeholder content.</p></div>
-</section>
+  <!-- Home -->
+  <section id="home" class="fullscreen hidden">
+    <div class="background-overlay"></div>
+    <nav class="menu-bar">
+      <div class="dropdown">
+        <span>About</span>
+        <div class="dropdown-content">
+          <a href="#" data-target="about-panel">Our Vision</a>
+          <a href="#" data-target="team-panel">The Team</a>
+          <a href="#" data-target="history-panel">History</a>
+          <a href="#" data-target="faq-panel">FAQ</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <span>Features</span>
+        <div class="dropdown-content">
+          <a href="#" data-target="feature1-panel">Feature One</a>
+          <a href="#" data-target="feature2-panel">Feature Two</a>
+          <a href="#" data-target="feature3-panel">Feature Three</a>
+          <a href="#" data-target="feature4-panel">Feature Four</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <span>More</span>
+        <div class="dropdown-content">
+          <a href="#" data-target="donation-panel">Support Us</a>
+          <a href="#" data-target="contact-panel">Contact</a>
+          <a href="#" data-target="legal-panel">Legal</a>
+          <a href="#" data-target="updates-panel">Updates</a>
+        </div>
+      </div>
+    </nav>
 
-<script src="app.js"></script>
+    <!-- Panels -->
+    <div id="about-panel" class="panel hidden">
+      <button class="back-btn">← Back</button>
+      <h2>Our Vision</h2>
+      <p>Placeholder text about the app’s futuristic vision.</p>
+    </div>
+
+    <div id="team-panel" class="panel hidden">
+      <button class="back-btn">← Back</button>
+      <h2>The Team</h2>
+      <p>Placeholder text introducing the team.</p>
+    </div>
+
+    <div id="history-panel" class="panel hidden">
+      <button class="back-btn">← Back</button>
+      <h2>History</h2>
+      <p>Placeholder history content about development.</p>
+    </div>
+
+    <div id="faq-panel" class="panel hidden">
+      <button class="back-btn">← Back</button>
+      <h2>FAQ</h2>
+      <p>Placeholder frequently asked questions.</p>
+    </div>
+
+    <div id="feature1-panel" class="panel hidden">
+      <button class="back-btn">← Back</button>
+      <h2>Feature One</h2>
+      <p>Placeholder content describing feature one.</p>
+    </div>
+
+    <div id="feature2-panel" class="panel hidden">
+      <button class="back-btn">← Back</button>
+      <h2>Feature Two</h2>
+      <p>Placeholder content describing feature two.</p>
+    </div>
+
+    <div id="feature3-panel" class="panel hidden">
+      <button class="back-btn">← Back</button>
+      <h2>Feature Three</h2>
+      <p>Placeholder content describing feature three.</p>
+    </div>
+
+    <div id="feature4-panel" class="panel hidden">
+      <button class="back-btn">← Back</button>
+      <h2>Feature Four</h2>
+      <p>Placeholder content describing feature four.</p>
+    </div>
+
+    <div id="donation-panel" class="panel hidden">
+      <button class="back-btn">← Back</button>
+      <h2>Support Us</h2>
+      <p>Placeholder text about supporting/donating.</p>
+    </div>
+
+    <div id="contact-panel" class="panel hidden">
+      <button class="back-btn">← Back</button>
+      <h2>Contact</h2>
+      <p>Placeholder text with contact info.</p>
+    </div>
+
+    <div id="legal-panel" class="panel hidden">
+      <button class="back-btn">← Back</button>
+      <h2>Legal</h2>
+      <p>Placeholder legal text/disclaimers.</p>
+    </div>
+
+    <div id="updates-panel" class="panel hidden">
+      <button class="back-btn">← Back</button>
+      <h2>Updates</h2>
+      <p>Placeholder text about latest updates.</p>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
 </body>
 </html>
